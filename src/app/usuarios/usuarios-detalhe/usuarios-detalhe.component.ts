@@ -5,6 +5,7 @@ import{ UsuariosService }from '../../services/usuarios.service'
 import { UsuariosListaComponent } from './../usuarios-lista/usuarios-lista.component';
 
 
+
 @Component({
   selector: 'app-usuarios-detalhe',
   templateUrl: './usuarios-detalhe.component.html',
