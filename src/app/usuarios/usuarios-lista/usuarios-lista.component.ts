@@ -38,11 +38,7 @@ export class UsuariosListaComponent implements OnInit {
 
   selecionaUsuario(usuario: Usuario) {
     alert(`Cliclou ${usuario.email}`);
-    this.router.navigate([`usuarios/detalhar/
-    ${usuario.id}
-    ${usuario.email}
-     ${usuario.first_name}
-     ${usuario.last_name}`]);
+    this.router.navigate([`usuarios/detalhar/${usuario.id}`]);
 
   }
 

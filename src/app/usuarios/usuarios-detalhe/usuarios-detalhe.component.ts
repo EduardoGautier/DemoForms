@@ -1,4 +1,5 @@
-import { Usuario, UsuarioCadastro } from './../../models/usuario.model';
+import {UsuarioCadastro } from './../../models/usuario.model';
+import { Usuario } from 'src/app/models/consultapaginada.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import{ UsuariosService }from '../../services/usuarios.service'
@@ -21,7 +22,13 @@ export class UsuariosDetalheComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.UsuariosService.buscarPorId(this.id);
+    this.UsuariosService.buscarPorId(this.id).subscribe(
+      dados => {
+        this.usuario = dados.data;
+        console.log(this.usuario);
+
+      }
+    );
   }
 
 }

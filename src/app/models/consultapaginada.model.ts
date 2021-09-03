@@ -9,11 +9,12 @@ export interface ConsultaPaginada {
 }
 
 export interface Usuario{
-  id:         number;
+  avatar:     string;
   email:      string;
   first_name: string;
+  id:         string;
   last_name:  string;
-  avatar:     string;
+
 }
 
 export interface Support {
