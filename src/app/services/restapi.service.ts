@@ -17,8 +17,5 @@ export class RestapiService {
   public post<T>(url: string, dados: any): Observable<T>{
     return this.http.post<T>(url, dados).pipe(catchError(tratadorDeErros))
   }
-  public getId<T>(url: string,id: number): Observable<T> {
-    return this.http.get<T>(url).pipe(catchError(tratadorDeErros))
-  }
 
 }

@@ -20,6 +20,7 @@ export class UsuariosListaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.UsuariosService.BuscarTodos().subscribe(
       dados => {
         console.log(dados);
@@ -31,8 +32,8 @@ export class UsuariosListaComponent implements OnInit {
         this.usuarios = [];
       }
     );
-  }
 
+  }
 
   selecionaUsuario(usuario: Usuario) {
     alert(`Cliclou ${usuario.email}`);

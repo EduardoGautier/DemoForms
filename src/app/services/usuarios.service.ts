@@ -18,7 +18,7 @@ export class UsuariosService {
   public cadastrar(usuario: UsuarioCadastro) {
     return this.api.post<UsuarioCadastro>(USERS_API_URL, usuario);
   }
-  public buscarPorId(id: number){
-    return this.api.getId<UsuarioCadastro>(USERS_API_URL,id)
+  public buscarPorId(id:number){
+    return this.api.get<ConsultaPaginada>(USERS_API_URL+ '/' +id);
   }
 }

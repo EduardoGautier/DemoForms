@@ -1,7 +1,9 @@
 import { Usuario, UsuarioCadastro } from './../../models/usuario.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import{UsuariosService}from '../../services/usuarios.service'
+import{ UsuariosService }from '../../services/usuarios.service'
+import { UsuariosListaComponent } from './../usuarios-lista/usuarios-lista.component';
+
 
 @Component({
   selector: 'app-usuarios-detalhe',
@@ -12,14 +14,13 @@ export class UsuariosDetalheComponent implements OnInit {
 
   colunas: string[] = ['id', 'email'];
   usuario : Usuario[] = [];
-
+  id : any;
 
   constructor(private route: ActivatedRoute, private UsuariosService: UsuariosService) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    console.log(id);
-
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.UsuariosService.buscarPorId(this.id);
   }
 
 }
