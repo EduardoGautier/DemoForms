@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { RestapiService } from './restapi.service';
 import { USERS_API_URL } from '../utils/rest';
-import{Usuario, UsuarioCadastro} from '../models/usuario.model'
+import{ UsuarioCadastro} from '../models/usuario.model'
 import {ConsultaPaginada} from '../models/consultapaginada.model';
+import { UsuarioDetalhado } from '../models/usuariodetalhado.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,8 @@ export class UsuariosService {
   public cadastrar(usuario: UsuarioCadastro) {
     return this.api.post<UsuarioCadastro>(USERS_API_URL, usuario);
   }
+  
   public buscarPorId(id:number){
-    return this.api.get<ConsultaPaginada>(USERS_API_URL+ '/' +id);
+    return this.api.get<UsuarioDetalhado>(USERS_API_URL+ '/' +id);
   }
 }

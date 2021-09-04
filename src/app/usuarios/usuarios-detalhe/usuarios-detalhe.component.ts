@@ -1,9 +1,7 @@
-import {UsuarioCadastro } from './../../models/usuario.model';
-import { Usuario } from 'src/app/models/consultapaginada.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import{ UsuariosService }from '../../services/usuarios.service'
-import { UsuariosListaComponent } from './../usuarios-lista/usuarios-lista.component';
+import { UsuarioData } from 'src/app/models/usuariodetalhado.model';
 
 
 
@@ -14,8 +12,8 @@ import { UsuariosListaComponent } from './../usuarios-lista/usuarios-lista.compo
 })
 export class UsuariosDetalheComponent implements OnInit {
 
-  colunas: string[] = ['id', 'email'];
-  usuario : Usuario[] = [];
+  colunas: string[] = ['firstName', 'lastName'];
+  usuario: UsuarioData | undefined;
   id : any;
 
   constructor(private route: ActivatedRoute, private UsuariosService: UsuariosService) { }
@@ -25,8 +23,11 @@ export class UsuariosDetalheComponent implements OnInit {
     this.UsuariosService.buscarPorId(this.id).subscribe(
       dados => {
         this.usuario = dados.data;
-        console.log(this.usuario);
-
+        console.log(this.usuario.first_name)
+      },
+      erro =>{
+        console.log(erro);
+        this.usuario;
       }
     );
   }
